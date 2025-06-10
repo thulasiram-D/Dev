@@ -15,4 +15,4 @@ jobs:
               cat README.md
               
        - name: ASCII Generator artwork
-         run: cowsay -f "Iam the Dragon" >> dragon.txt
+         run: cowsay -f dragon "Run for cover, I feel a sneeze coming on." >> dragon.txt
