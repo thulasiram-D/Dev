@@ -8,11 +8,11 @@ jobs:
        - name: Checkout
          uses: actions/checkout@v4.2.2
          
-       - name: first message
-         run: echo "this is my first message"
-
-       - name: listing files
-         run: ls
-
-       - name: read the files
-         run: cat README.md
+       - name: list and read
+         run: |
+              echo "this is my first message"
+              ls
+              cat README.md
+              
+       - name: ASCII Generator artwork
+         run: cowsay -f "Iam the Dragon" >> dragon.txt
