@@ -14,5 +14,4 @@ jobs:
               ls
               cat README.md
               
-       - name: ASCII Generator artwork
-         run: cowsay -f dragon "Run for cover, I feel a sneeze coming on." >> dragon.txt
+       
