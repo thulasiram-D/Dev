@@ -14,9 +14,16 @@ jobs:
        - name: cowsay fortune quote generator
          run: fortune | cowsay
 
-       - name: cowsay list 
-         run: cowsay -l
-
+       - name: create a txt file 
+         run: echo "txt file created" > build.txt
+        
+       - name: Upload a Build Artifact
+         uses: actions/upload-artifact@v4.6.2
+         with:
+          name: build-text
+          path: build.txt
+             
+            
   test-job:
       needs: build-job
       runs-on: ubuntu-latest
@@ -24,10 +31,11 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v4.2.2
       
-        - name: list hidden files
-          run: |
-               ls -ltra
-               echo "test job is done" > test.txt
+        - name: download a Build Artifact
+          uses: actions/download-artifact@v4.6.2
+          with:
+           name: build-text
+        
   
   # deploy-job:
   #      needs: test-job
