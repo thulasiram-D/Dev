@@ -2,7 +2,7 @@ name: ascii generator
 on: push
 
 jobs:
-  first-job:
+  build-job:
       runs-on: ubuntu-latest
       steps:
        - name: Checkout
@@ -16,3 +16,25 @@ jobs:
 
        - name: cowsay list 
          run: cowsay -l
+
+  test-job:
+      needs: build-job
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout repo
+          uses: actions/checkout@v4.2.2
+      
+        - name: list hidden files
+          run: |
+               ls -ltra
+               echo "test job is done" > test.txt
+  
+  deploy-job:
+       needs: test-job
+       runs-on: ubunutu-latest
+       steps:
+         - name: read file
+           run: cat test.txt
+
+
+      
