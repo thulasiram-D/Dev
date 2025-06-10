@@ -29,12 +29,12 @@ jobs:
                ls -ltra
                echo "test job is done" > test.txt
   
-  deploy-job:
-       needs: test-job
-       runs-on: ubunutu-latest
-       steps:
-         - name: read file
-           run: ls
+  # deploy-job:
+  #      needs: test-job
+  #      runs-on: ubunutu-latest
+  #      steps:
+  #        - name: read file
+  #          run: ls
 
 
       
