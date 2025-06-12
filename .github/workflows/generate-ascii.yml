@@ -18,7 +18,7 @@ jobs:
          run: echo "txt file created" > build.txt
         
        - name: Upload a Build Artifact
-         uses: actions/upload-artifact@v4.6.2
+         uses: actions/upload-artifact@v@v4.4.3
          with:
           name: build-text
           path: build.txt
@@ -36,12 +36,4 @@ jobs:
            name: build-text
         
   
-  deploy-job:
-       needs: test-job
-       runs-on: ubunutu-latest
-       steps:
-         - name: read file
-           run: ls
-
-
-      
+ 
