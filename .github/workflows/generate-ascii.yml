@@ -37,12 +37,12 @@ jobs:
            name: build-text
         
   
-  # deploy-job:
-  #      needs: test-job
-  #      runs-on: ubunutu-latest
-  #      steps:
-  #        - name: read file
-  #          run: ls
+  deploy-job:
+       needs: test-job
+       runs-on: ubunutu-latest
+       steps:
+         - name: read file
+           run: ls
 
 
       
