@@ -42,5 +42,5 @@ jobs:
         sudo chmod 777 /var/run/docker.sock
         docker pull thulasiram9790/todo-app:v2
         docker stop $(docker ps -a -q) || true
-        docker run -d -p 3000:80 thulasiram9790/todo-app:v2
+        docker run -d -p 3000:3000 thulasiram9790/todo-app:v2
         EOF
