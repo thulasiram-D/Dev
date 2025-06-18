@@ -39,7 +39,8 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_INSTANCE_IP }} << 'EOF'
         sudo apt update
         sudo apt install docker.io -y
+        sudo chmod 777 /var/run/docker.sock
         docker pull thulasiram9790/todo-app:v2
         docker stop $(docker ps -a -q) || true
-        docker run -d -p 80:80 your-dockerhub-username/your-docker-image-name:latest
+        docker run -d -p 3000:80 thulasiram9790/todo-app:v2
         EOF
